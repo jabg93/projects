@@ -1,3 +1,4 @@
+/* General layout */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -6,6 +7,7 @@ body {
   color: #333;
 }
 
+/* Header */
 header {
   background-color: #004372;
   color: white;
@@ -13,108 +15,101 @@ header {
   text-align: center;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
+header p {
+  font-size: 1.25rem; /* Subtítulo más grande */
+  margin: 0;
+}
+
+/* Gallery container */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Siempre 2 columnas en desktop */
+  gap: 2rem;
+  padding: 2rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Responsive para móviles */
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
+
+/* Card styling */
 .card {
   background-color: white;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   transition: transform 0.2s ease;
+  padding: 1rem;
+  text-align: center;
 }
 
 .card:hover {
   transform: translateY(-5px);
 }
 
-.card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .card h2 {
-  font-size: 1.25rem;
-  margin: 1rem;
+  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem;
 }
 
 .card p {
-  margin: 0 1rem 1rem;
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
 }
 
-.card a {
-  margin: 0 1rem 1rem;
-  display: inline-block;
-  text-decoration: none;
-  color: #004372;
-  font-weight: bold;
+/* Dashboard image */
+.card img {
+  width: 100%;
+  max-height: 460px; /* Puedes ajustar esta altura */
+  object-fit: contain;
+  border-radius: 8px;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
   background-color: #eee;
-}
-
-
-.main-img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-}
-
-.thumbs {
-  margin: 0.5rem 1rem;
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-}
-
-.thumbs img {
-  width: 60px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 6px;
-  cursor: pointer;
-  opacity: 0.8;
-  border: 2px solid transparent;
-}
-
-.thumbs img:hover,
-.thumbs img:focus {
-  opacity: 1;
-  border-color: #004372;
+  font-size: 0.9rem;
 }
 
 .stacked-container {
   position: relative;
   width: 100%;
-  cursor: pointer;
-  height: auto;
-  margin: 0 auto 1rem;
+  height: 460px; /* Igual a la altura máxima de las imágenes para evitar saltos */
+  cursor: pointer; /* Para que el usuario sepa que es clickeable */
+  overflow: hidden;
 }
 
+/* Imágenes apiladas absolutamente */
 .stacked-img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  border-radius: 12px;
-  border: 1px solid #ccc;
+  height: 460px; /* Igual que el contenedor para que llenen el área */
+  object-fit: contain;
+  border-radius: 8px;
+  display: none; /* Por defecto ocultas */
+  transition: opacity 0.3s ease;
   opacity: 0;
-  transform: translateY(5px) translateX(5px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  z-index: 1;
+  user-select: none; /* Evitar que el usuario seleccione la imagen al clickear */
 }
 
+/* Imagen visible */
 .stacked-img.visible {
+  display: block;
   opacity: 1;
-  transform: translateY(0) translateX(0);
-  z-index: 2;
+  position: absolute;
 }

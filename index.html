@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Power BI Dashboards | Jose Batista</title>
+  <title> Dashboards | Jose Batista</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -14,21 +14,22 @@
 
   <main class="gallery">
     <div class="card">
-      <img src="assets/efficiency_by_segment.png" alt="Efficiency Dashboard" />
       <h2>Efficiency Dashboard</h2>
       <p>Displays payment efficiency organized by segments.</p>
+      <div class="stacked-container" onclick="cycleImage('efficiency')">
+        <img id="efficiency-img-0" class="stacked-img visible" src="assets/efficiency_by_segment.png" alt="Screenshot 1" />
+        <img id="efficiency-img-1" class="stacked-img" src="assets/efficiency_complement.png" alt="Screenshot 2" />
+      </div>
     </div>
-
     <div class="card">
       <h2>Customer Segmentation</h2>
+      <p>Cluster analysis based on customer behavior and demographics.</p>
       <div class="stacked-container" onclick="cycleImage('segmentation')">
         <img id="segmentation-img-0" class="stacked-img visible" src="assets/ratification.png" alt="Screenshot 1" />
         <img id="segmentation-img-1" class="stacked-img" src="assets/ratification1.png" alt="Screenshot 2" />
       </div>
-      <p>Cluster analysis based on customer behavior and demographics.</p>
     </div>
   </main>
-
   <footer>
     <p>&copy; 2025 Jose Batista | Power BI Portfolio</p>
   </footer>
@@ -36,6 +37,10 @@
   <script>
     const imageStacks = {
       segmentation: {
+        currentIndex: 0,
+        total: 2
+      },
+      efficiency: {
         currentIndex: 0,
         total: 2
       }
