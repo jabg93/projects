@@ -60,3 +60,34 @@ footer {
   padding: 1rem;
   background-color: #eee;
 }
+
+
+.main-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+.thumbs {
+  margin: 0.5rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.thumbs img {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.8;
+  border: 2px solid transparent;
+}
+
+.thumbs img:hover,
+.thumbs img:focus {
+  opacity: 1;
+  border-color: #004372;
+}
