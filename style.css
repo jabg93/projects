@@ -21,21 +21,19 @@ header h1 {
 }
 
 header p {
-  font-size: 1.25rem; /* Subtítulo más grande */
+  font-size: 1.25rem;
   margin: 0;
 }
 
-/* Gallery container */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Siempre 2 columnas en desktop */
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   padding: 2rem 4rem;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* Responsive para móviles */
 @media (max-width: 900px) {
   .gallery {
     grid-template-columns: 1fr;
@@ -43,7 +41,6 @@ header p {
   }
 }
 
-/* Card styling */
 .card {
   background-color: white;
   border-radius: 16px;
@@ -68,15 +65,14 @@ header p {
   font-size: 1.1rem;
 }
 
-/* Dashboard image */
 .card img {
   width: 100%;
-  max-height: 460px; /* Puedes ajustar esta altura */
+  max-height: 460px;
   object-fit: contain;
   border-radius: 8px;
 }
 
-/* Footer */
+
 footer {
   text-align: center;
   padding: 1rem;
@@ -87,27 +83,27 @@ footer {
 .stacked-container {
   position: relative;
   width: 100%;
-  height: 460px; /* Igual a la altura máxima de las imágenes para evitar saltos */
-  cursor: pointer; /* Para que el usuario sepa que es clickeable */
+  height: 460px; 
+  cursor: pointer;
   overflow: hidden;
 }
 
-/* Imágenes apiladas absolutamente */
+
 .stacked-img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 460px; /* Igual que el contenedor para que llenen el área */
+  height: 460px;
   object-fit: contain;
   border-radius: 8px;
-  display: none; /* Por defecto ocultas */
+  display: none;
   transition: opacity 0.3s ease;
   opacity: 0;
-  user-select: none; /* Evitar que el usuario seleccione la imagen al clickear */
+  user-select: none;
 }
 
-/* Imagen visible */
+
 .stacked-img.visible {
   display: block;
   opacity: 1;
