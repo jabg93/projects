@@ -11,11 +11,14 @@
     <h1>My Power BI Dashboards</h1>
     <p>Data stories built using Power BI</p>
   </header>
+
   <main class="gallery">
     <div class="card">
       <img src="assets/efficiency_by_segment.png" alt="Efficiency Dashboard" />
-      <p>Efficiency Dashboard.</p>
+      <h2>Efficiency Dashboard</h2>
+      <p>Displays payment efficiency organized by segments.</p>
     </div>
+
     <div class="card">
       <h2>Customer Segmentation</h2>
       <img id="main-img-ratification" src="assets/ratification.png" alt="Ratification Dashboard" class="main-img" />
@@ -23,11 +26,19 @@
         <img src="assets/ratification.png" onclick="changeImage('main-img-ratification', this.src)" alt="Thumbnail 1" />
         <img src="assets/ratification1.png" onclick="changeImage('main-img-ratification', this.src)" alt="Thumbnail 2" />
       </div>
-      <p>Ratification Dashboard.</p>
+      <h2>Ratification Dashboard</h2>
+      <p>Display the accumulated credit ratification.</p>
     </div>
   </main>
+
   <footer>
     <p>&copy; 2025 Jose Batista | Power BI Portfolio</p>
   </footer>
+
+  <script>
+    function changeImage(imgId, newSrc) {
+      document.getElementById(imgId).src = newSrc;
+    }
+  </script>
 </body>
 </html>
