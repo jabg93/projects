@@ -21,13 +21,11 @@
 
     <div class="card">
       <h2>Customer Segmentation</h2>
-      <img id="main-img-ratification" src="assets/ratification.png" alt="Ratification Dashboard" class="main-img" />
-      <div class="thumbs">
-        <img src="assets/ratification.png" onclick="changeImage('main-img-ratification', this.src)" alt="Thumbnail 1" />
-        <img src="assets/ratification1.png" onclick="changeImage('main-img-ratification', this.src)" alt="Thumbnail 2" />
+      <div class="stacked-container" onclick="cycleImage('segmentation')">
+        <img id="segmentation-img-0" class="stacked-img visible" src="assets/ratification.png" alt="Screenshot 1" />
+        <img id="segmentation-img-1" class="stacked-img" src="assets/ratification1.png" alt="Screenshot 2" />
       </div>
-      <h2>Ratification Dashboard</h2>
-      <p>Display the accumulated credit ratification.</p>
+      <p>Cluster analysis based on customer behavior and demographics.</p>
     </div>
   </main>
 
@@ -36,8 +34,24 @@
   </footer>
 
   <script>
-    function changeImage(imgId, newSrc) {
-      document.getElementById(imgId).src = newSrc;
+    const imageStacks = {
+      segmentation: {
+        currentIndex: 0,
+        total: 2
+      }
+    };
+
+    function cycleImage(idPrefix) {
+      const stack = imageStacks[idPrefix];
+      const current = stack.currentIndex;
+      const next = (current + 1) % stack.total;
+
+      for (let i = 0; i < stack.total; i++) {
+        document.getElementById(`${idPrefix}-img-${i}`).classList.remove("visible");
+      }
+      document.getElementById(`${idPrefix}-img-${next}`).classList.add("visible");
+      
+      stack.currentIndex = next;
     }
   </script>
 </body>
